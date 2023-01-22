@@ -37,7 +37,7 @@ def find_movie(update, context):
 
 def movie_result(update, context) -> None:
     query = update.callback_query
-    s = get_movie(query.data)
+    s = get_movie(query.data) 
     response = requests.get(s["img"])
     img = BytesIO(response.content)
     query.message.reply_photo(photo=img, caption=f"🎥 {s['title']}")
